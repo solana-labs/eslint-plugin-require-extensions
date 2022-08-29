@@ -1,0 +1,28 @@
+{
+    "name": "eslint-plugin-require-extensions",
+    "version": "0.1.0",
+    "author": "Solana Maintainers <maintainers@solana.foundation>",
+    "repository": "https://github.com/solana-labs/eslint-plugin-require-extensions",
+    "license": "Apache-2.0",
+    "type": "commonjs",
+    "engines": {
+        "node": ">=16"
+    },
+    "main": "./index.js",
+    "exports": {
+        "require": "./index.js"
+    },
+    "files": [
+        "index.js",
+        "LICENSE"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "eslint": "*"
+    },
+    "devDependencies": {
+        "eslint": "^8.23.0"
+    }
+}
