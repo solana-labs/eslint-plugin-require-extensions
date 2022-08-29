@@ -30,7 +30,7 @@ npm install --save-dev eslint-plugin-require-extensions
 import Target from './target';
 ```
 
-4Lint
+4. Lint
 
 ```shell
 eslint .
