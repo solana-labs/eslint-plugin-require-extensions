@@ -14,7 +14,8 @@
     },
     "files": [
         "index.js",
-        "LICENSE"
+        "LICENSE",
+        "README.md"
     ],
     "publishConfig": {
         "access": "public"
