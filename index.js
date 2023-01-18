@@ -3,10 +3,6 @@ const { dirname, resolve } = require('path')
 
 const extensions = ['js', 'ts', 'jsx', 'tsx']
 
-function moduleExists(path) {
-    return ext => existsSync(`${path}.${ext}`)
-}
-
 module.exports = {
     configs: {
         recommended: {
@@ -28,7 +24,7 @@ module.exports = {
                     const value = source.value;
                     if (!value || !value.startsWith('.') || value.endsWith('.js')) return;
 
-                    if (extensions.some(moduleExists(resolve(dirname(context.getFilename()), value)))) {
+                    if (!existsSync(resolve(dirname(context.getFilename()), value))) {
                         context.report({
                             node,
                             message: 'Relative imports and exports must end with .js',
