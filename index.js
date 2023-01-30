@@ -1,8 +1,6 @@
 const { existsSync } = require('fs')
 const { dirname, resolve } = require('path')
 
-const extensions = ['js', 'ts', 'jsx', 'tsx']
-
 module.exports = {
     configs: {
         recommended: {
