@@ -1,3 +1,6 @@
+const { existsSync } = require('fs')
+const { dirname, resolve } = require('path')
+
 module.exports = {
     configs: {
         recommended: {
@@ -17,9 +20,9 @@ module.exports = {
                     const source = node.source;
                     if (!source) return;
                     const value = source.value;
-                    if (!value) return;
+                    if (!value || !value.startsWith('.') || value.endsWith('.js')) return;
 
-                    if (value.startsWith('.') && !value.endsWith('.js')) {
+                    if (!existsSync(resolve(dirname(context.getFilename()), value))) {
                         context.report({
                             node,
                             message: 'Relative imports and exports must end with .js',
