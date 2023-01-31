@@ -1,5 +1,5 @@
-const { existsSync } = require('fs')
-const { dirname, resolve } = require('path')
+const { existsSync } = require('fs');
+const { dirname, resolve } = require('path');
 
 module.exports = {
     configs: {
