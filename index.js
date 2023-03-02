@@ -19,7 +19,7 @@ module.exports = {
                 function rule(node) {
                     const source = node.source;
                     if (!source) return;
-                    const value = source.value;
+                    const value = source.value.replace(/\?.*$/, '');
                     if (!value || !value.startsWith('.') || value.endsWith('.js')) return;
 
                     if (!existsSync(resolve(dirname(context.getFilename()), value))) {
