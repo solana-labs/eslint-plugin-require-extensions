@@ -17,6 +17,9 @@
         "LICENSE",
         "README.md"
     ],
+    "scripts": {
+        "test": "eslint . --report-unused-disable-directives"
+    },
     "publishConfig": {
         "access": "public"
     },
