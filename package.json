@@ -5,6 +5,9 @@
     "repository": "https://github.com/solana-labs/eslint-plugin-require-extensions",
     "license": "Apache-2.0",
     "type": "commonjs",
+    "scripts": {
+        "test": "eslint . --report-unused-disable-directives"
+    },
     "engines": {
         "node": ">=16"
     },
