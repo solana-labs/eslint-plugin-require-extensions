@@ -14,12 +14,17 @@ module.exports = {
     rules: {
         'require-extensions': rule((context, node, path) => {
             if (!existsSync(path)) {
+                let fix
+                if(!node.source.value.includes('?')) {
+                    fix = (fixer) => {
+                        return fixer.replaceText(node.source, `'${node.source.value}.js'`);
+                    }
+                }
+
                 context.report({
                     node,
                     message: 'Relative imports and exports must end with .js',
-                    fix(fixer) {
-                        return fixer.replaceText(node.source, `'${node.source.value}.js'`);
-                    },
+                    fix,
                 });
             }
         }),
@@ -46,7 +51,7 @@ function rule(check) {
             function rule(node) {
                 const source = node.source;
                 if (!source) return;
-                const value = source.value;
+                const value = source.value.replace(/\?.*$/, '');
                 if (!value || !value.startsWith('.') || value.endsWith('.js')) return;
 
                 check(context, node, resolve(dirname(context.getFilename()), value))
