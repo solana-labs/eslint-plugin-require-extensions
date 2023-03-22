@@ -15,11 +15,11 @@ module.exports = {
         'require-extensions': rule((context, node, path) => {
             if (!existsSync(path)) {
                 let fix
-               // if(!node.source.value.includes('?')) {
+                if(!node.source.value.includes('?')) {
                     fix = (fixer) => {
                         return fixer.replaceText(node.source, `'${node.source.value}.js'`);
                     }
-               // }
+                }
 
                 context.report({
                     node,
