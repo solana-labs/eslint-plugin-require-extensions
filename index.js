@@ -14,11 +14,11 @@ module.exports = {
     rules: {
         'require-extensions': rule((context, node, path) => {
             if (!existsSync(path)) {
-                let fix
-                if(!node.source.value.includes('?')) {
+                let fix;
+                if (!node.source.value.includes('?')) {
                     fix = (fixer) => {
                         return fixer.replaceText(node.source, `'${node.source.value}.js'`);
-                    }
+                    };
                 }
 
                 context.report({
@@ -29,7 +29,7 @@ module.exports = {
             }
         }),
         'require-index': rule((context, node, path) => {
-            if(existsSync(path) && lstatSync(path).isDirectory()) {
+            if (existsSync(path) && lstatSync(path).isDirectory()) {
                 context.report({
                     node,
                     message: 'Directory paths must end with index.js',
@@ -39,7 +39,7 @@ module.exports = {
                 });
             }
         }),
-    }
+    },
 };
 
 function rule(check) {
@@ -54,7 +54,7 @@ function rule(check) {
                 const value = source.value.replace(/\?.*$/, '');
                 if (!value || !value.startsWith('.') || value.endsWith('.js')) return;
 
-                check(context, node, resolve(dirname(context.getFilename()), value))
+                check(context, node, resolve(dirname(context.getFilename()), value));
             }
 
             return {
@@ -65,5 +65,5 @@ function rule(check) {
                 ImportDeclaration: rule,
             };
         },
-    }
+    };
 }

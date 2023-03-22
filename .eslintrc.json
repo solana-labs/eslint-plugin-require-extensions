@@ -1,15 +1,9 @@
 {
-  "extends": [
-    "plugin:require-extensions/recommended"
-  ],
-  "plugins": [
-    "require-extensions"
-  ],
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaVersion": 2020
-  },
-  "ignorePatterns": [
-    "/index.js"
-  ]
+    "extends": ["plugin:require-extensions/recommended"],
+    "plugins": ["require-extensions"],
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020
+    },
+    "ignorePatterns": ["/index.js"]
 }

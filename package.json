@@ -21,6 +21,7 @@
         "README.md"
     ],
     "scripts": {
+        "fmt": "prettier --write '{*,**/*}.{ts,tsx,js,jsx,json}'",
         "test": "eslint . --report-unused-disable-directives"
     },
     "publishConfig": {
@@ -30,6 +31,7 @@
         "eslint": "*"
     },
     "devDependencies": {
-        "eslint": "^8.23.0"
+        "eslint": "^8.23.0",
+        "prettier": "^2.8.6"
     }
 }
